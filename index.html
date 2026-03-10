@@ -678,7 +678,7 @@ function renderCart() {
     foot.innerHTML = renderTotals(subtotal, discount, total, free)
       + `<div class="btn-row">
         <button class="btn-back" onclick="checkoutStep=1;renderCart()">→ تعديل</button>
-        <button class="btn-wa" onclick="fbq('track', 'Purchase'); sendOrder();"()"><span style="font-size:20px">📱</span> أرسل على واتساب</button>
+        <button class="btn-wa" onclick="sendWhatsApp()"><span style="font-size:20px">📱</span> أرسل على واتساب</button>
       </div>`;
   }
 }
