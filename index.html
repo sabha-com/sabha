@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Meta Pixel Code -->
-<script>
+  <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -17,24 +16,19 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1273291968072701&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
-<!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
 var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-
   ttq.load('D6Q8PFRC77U06JA6JKJ0');
   ttq.page();
 }(window, document, 'ttq');
 </script>
-<!-- TikTok Pixel Code End -->
-
 <title>صبحة | Sabha — طلب أونلاين</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
@@ -270,7 +264,6 @@ input{font-family:inherit}
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="hdr">
   <div class="hdr-deco"></div>
   <div class="hdr-icon">🌿☀️</div>
@@ -280,27 +273,22 @@ input{font-family:inherit}
   <div class="hdr-sub">أطزج خضروات وفواكه وورقيات من المزرعة لبيتك مباشرة — كل أوردر بيتقطف خصيصاً ليك!</div>
 </header>
 
-<!-- ===== DELIVERY NUDGE ===== -->
 <div id="nudge" class="nudge">
   <div class="nudge-txt" id="nudge-txt"></div>
   <div class="nudge-bar" id="nudge-bar-wrap"><div class="nudge-fill" id="nudge-fill"></div></div>
 </div>
 
-<!-- ===== STICKY NAV ===== -->
 <nav class="nav">
   <div class="nav-inner" id="nav-inner"></div>
 </nav>
 
-<!-- ===== MAIN CONTENT ===== -->
 <div class="wrap" id="wrap"></div>
 
-<!-- ===== FLOATING CART BUTTON ===== -->
 <button class="fab" id="fab" onclick="openCart()">
   <span id="fab-label">🛒 السلة (٠)</span>
   <span class="fab-total" id="fab-total">٠ ج.م</span>
 </button>
 
-<!-- ===== CART OVERLAY ===== -->
 <div class="overlay" id="overlay">
   <div class="overlay-bg" onclick="closeCart()"></div>
   <div class="drawer">
@@ -313,7 +301,6 @@ input{font-family:inherit}
   </div>
 </div>
 
-<!-- ===== TOAST ===== -->
 <div class="toast" id="toast">✅ تم إرسال الأوردر! هنأكدلك على واتساب</div>
 
 <footer class="ftr">
@@ -346,6 +333,7 @@ const CATS = [
 ];
 
 const BUNDLES = [
+  { id:"b_saver", name:"بوكس التوفير", en:"Savings Box", emoji:"🍓🍊", price:400, old:650, desc:"١٠ كيلو فراولة + ٢٠ كيلو برتقال (يطلب مع منتجات أخرى بـ ٥٠٠ ج كحد أدنى ولا يحسب ضمن الشحن المجاني)", pop:true },
   { id:"b1", name:"بوكس السلطة", en:"Salad Box", emoji:"🥗", price:175, old:220, desc:"خس + طماطم سلطة + خيار + جزر + ليمون + بقدونس + جرجير", pop:false },
   { id:"b2", name:"بوكس الطبيخ", en:"Cooking Box", emoji:"🍲", price:240, old:305, desc:"طماطم طبيخ + بصل أبيض + بطاطس + كوسة + فلفل أخضر + ثوم + كزبرة + شبت", pop:false },
   { id:"b3", name:"بوكس العيلة", en:"Family Box", emoji:"👨‍👩‍👧‍👦", price:470, old:610, desc:"بوكس السلطة + بوكس الطبيخ + موز + برتقال + فراولة", pop:false },
@@ -428,6 +416,10 @@ let checkoutStep = 0;
 let customerName = "", customerAddress = "", customerPhone = "";
 
 const toAr = n => String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+
+function getSaverBoxTotal() { return (cart['b_saver']?.qty || 0) * 400; }
+function getRegularSubtotal() { return getSubtotal() - getSaverBoxTotal(); }
+function isCartValid() { return getSaverBoxTotal() === 0 || getRegularSubtotal() >= 500; }
 
 function getCartItems() { return Object.entries(cart).filter(([,v]) => v.qty > 0); }
 function getSubtotal() { return getCartItems().reduce((s,[,v]) => s + v.price * v.qty, 0); }
@@ -561,20 +553,20 @@ function renderNav() {
 
 function updateNudge() {
   const el = document.getElementById("nudge");
-  const total = getTotal();
+  const qTotal = getTotal() - getSaverBoxTotal(); // إجمالي المنتجات العادية فقط
   const items = getTotalItems();
   if (items === 0) { el.classList.remove("show"); return; }
   el.classList.add("show");
-  if (total >= FREE_DELIVERY) {
+  if (qTotal >= FREE_DELIVERY) {
     el.className = "nudge show done";
     document.getElementById("nudge-txt").textContent = "🎉 مبروك! التوصيل مجاني";
     document.getElementById("nudge-bar-wrap").style.display = "none";
   } else {
     el.className = "nudge show progress";
-    const remaining = FREE_DELIVERY - total;
-    document.getElementById("nudge-txt").textContent = `🚚 ضيف ${toAr(remaining)} جنيه كمان والتوصيل يبقى مجاني!`;
+    const remaining = FREE_DELIVERY - qTotal;
+    document.getElementById("nudge-txt").textContent = `🚚 ضيف ${toAr(remaining)} جنيه (غير بوكس التوفير) والتوصيل يبقى مجاني!`;
     document.getElementById("nudge-bar-wrap").style.display = "block";
-    document.getElementById("nudge-fill").style.width = `${Math.min(100, (total/FREE_DELIVERY)*100)}%`;
+    document.getElementById("nudge-fill").style.width = `${Math.min(100, (qTotal/FREE_DELIVERY)*100)}%`;
   }
 }
 
@@ -616,11 +608,14 @@ function renderCart() {
   const body = document.getElementById("drawer-body");
   const foot = document.getElementById("drawer-foot");
   const title = document.getElementById("drawer-title");
+  
   const items = getCartItems();
   const subtotal = getSubtotal();
   const discount = getDiscount();
   const total = getTotal();
-  const free = total >= FREE_DELIVERY;
+  const qTotal = total - getSaverBoxTotal();
+  const free = qTotal >= FREE_DELIVERY;
+  const valid = isCartValid();
 
   const titles = ["🛒 السلة","📋 بيانات التوصيل","✅ تأكيد الأوردر"];
   title.textContent = titles[checkoutStep] + (checkoutStep===0 ? ` (${toAr(getTotalItems())})` : "");
@@ -653,6 +648,13 @@ function renderCart() {
       </div>
       <div id="promo-msg"></div>
     </div>`;
+
+    if (!valid) {
+      h = `<div style="background:#FFEBEE;color:#C62828;padding:10px;border-radius:10px;font-size:13px;font-weight:700;margin-bottom:12px;text-align:center;">
+        ⚠️ بوكس التوفير يتطلب إضافة منتجات أخرى بـ ٥٠٠ ج على الأقل. (منتجاتك الحالية: ${toAr(getRegularSubtotal())} ج)
+      </div>` + h;
+    }
+
     body.innerHTML = h;
     if (appliedPromo) {
       document.getElementById("promo-msg").innerHTML = `<div class="promo-ok">✅ ${PROMO_CODES[appliedPromo].label} — وفّرت ${toAr(discount)} جنيه!</div>`;
@@ -660,7 +662,7 @@ function renderCart() {
 
     // Footer
     foot.innerHTML = renderTotals(subtotal, discount, total, free)
-      + `<button class="btn-main" onclick="checkoutStep=1;renderCart()">متابعة الطلب ←</button>`;
+      + `<button class="btn-main" onclick="checkoutStep=1;renderCart()" ${!valid ? 'disabled' : ''}>متابعة الطلب ←</button>`;
   }
 
   // ---- STEP 1: Customer info ----
@@ -723,11 +725,16 @@ function applyPromo() {
     msg.innerHTML = `<div class="promo-ok">✅ ${PROMO_CODES[code].label} — وفّرت ${toAr(getDiscount())} جنيه!</div>`;
     updateFab();
     updateNudge();
+    
     // Re-render totals in footer
     const foot = document.getElementById("drawer-foot");
-    const sub = getSubtotal(), disc = getDiscount(), total = getTotal(), free = total >= FREE_DELIVERY;
-    foot.innerHTML = renderTotals(sub, disc, total, free)
-      + `<button class="btn-main" onclick="checkoutStep=1;renderCart()">متابعة الطلب ←</button>`;
+    const sub = getSubtotal(), disc = getDiscount(), total = getTotal();
+    const qTotalPromo = total - getSaverBoxTotal();
+    const freePromo = qTotalPromo >= FREE_DELIVERY;
+    const validPromo = isCartValid();
+    
+    foot.innerHTML = renderTotals(sub, disc, total, freePromo)
+      + `<button class="btn-main" onclick="checkoutStep=1;renderCart()" ${!validPromo ? 'disabled' : ''}>متابعة الطلب ←</button>`;
   } else {
     appliedPromo = null;
     msg.innerHTML = `<div class="promo-err">الكود مش صحيح، جرب تاني</div>`;
@@ -745,7 +752,9 @@ function sendWhatsApp() {
     msg += `\n🏷️ كود خصم: ${appliedPromo} (-${getDiscount()} ج.م)`;
     msg += `\n✅ المطلوب: ${getTotal()} ج.م`;
   }
-  if (getTotal() >= FREE_DELIVERY) msg += `\n🚚 التوصيل مجاني!`;
+  
+  const qTotal = getTotal() - getSaverBoxTotal();
+  if (qTotal >= FREE_DELIVERY) msg += `\n🚚 التوصيل مجاني!`;
 
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
   closeCart();
